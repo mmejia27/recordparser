@@ -14,18 +14,17 @@ namespace RecordParser.API.Test
         {
             var controller = new RecordsController();
             controller.Post("Mike Adder Male Blue 01/01/2000");
-            controller.Post("John Doe Male Black 03/03/1988");
+            controller.Post("Jane Doe Female Green 03/03/1984");
+            controller.Post("John Abb Male Black 05/05/1985");
 
             var result = controller.Get();
-            Assert.AreEqual(result.Count(), 2);
+            Assert.AreEqual(result.Count(), 3);
         }
 
         [TestMethod]
         public void Records_GetByGender()
         {
             var controller = new RecordsController();
-            controller.Post("Mike Adder Male Blue 01/01/2000");
-            controller.Post("Jane Doe Female Green 03/03/1988");
 
             var result = controller.GetByGender();
             Assert.AreEqual(result.First().Gender, "Female");
@@ -35,8 +34,6 @@ namespace RecordParser.API.Test
         public void Records_GetByBirthdate()
         {
             var controller = new RecordsController();
-            controller.Post("Mike Adder Male Blue 01/01/2000");
-            controller.Post("Jane Doe Female Green 03/03/1988");
 
             var result = controller.GetByBirthdate();
             Assert.AreEqual(result.First().LastName, "Doe");
@@ -46,11 +43,9 @@ namespace RecordParser.API.Test
         public void Records_GetByName()
         {
             var controller = new RecordsController();
-            controller.Post("Mike Adder Male Blue 01/01/2000");
-            controller.Post("Jane Doe Female Green 03/03/1988");
-            controller.Post("John Abb Male Black 05/05/1985");
 
             var result = controller.GetByName();
+            Assert.AreEqual(result.Count(), 3);
             Assert.AreEqual(result.First().LastName, "Abb");
         }
     }
