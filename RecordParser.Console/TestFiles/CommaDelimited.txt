@@ -1,0 +1,6 @@
+﻿Joe | Lake | Male | Teal | 03/03/1980
+Taylor | Zee | Male | Blue | 05/05/1979
+Zoe | Moore | Female | Orange | 03/03/1993
+Jamie | Hines | Female | Green | 04/04/1995
+Frank | Coffer | Male | Blue | 01/01/2005
+Madeline | Sula | Female | Brown | 01/01/1975

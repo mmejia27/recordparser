@@ -1,0 +1,6 @@
+﻿John | Doe | Male | Teal | 03/03/1986
+Mike | Doe | Male | Blue | 05/05/1987
+Jane | Doe | Female | Orange | 03/03/1987
+Jane | Aby | Female | Green | 04/04/1985
+Don | Has | Male | Blue | 01/01/1988
+James | Bar | Male | Blue | 01/01/1988

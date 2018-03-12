@@ -33,6 +33,7 @@ namespace RecordParser.ConsoleApp
                         try
                         {
                             var person = Person.ParseRecord(line);
+                            persons.Add(person);
                         }
                         catch (ArgumentException ex)
                         {
@@ -41,10 +42,47 @@ namespace RecordParser.ConsoleApp
                         }
                     }
                 }
+
+                Console.WriteLine($"Found {persons.Count} person(s)\n");
+
+                Console.WriteLine("Sorted by gender, then last name:");
+                Console.WriteLine("================================================================");
+                var personsByGender = persons.OrderBy(p => p.Gender).ThenBy(p => p.LastName);
+                foreach (var person in personsByGender)
+                {
+                    Console.Write($"{person.FirstName,-10} {person.LastName,-10} {person.Gender,-8}");
+                    Console.Write($"{person.FavoriteColor,-10} {person.DateOfBirth.ToString("M/d/yyyy"),10}\n");
+                }
+                Console.WriteLine("================================================================");
+
+                Console.WriteLine("Sorted by date of birth:");
+                Console.WriteLine("================================================================");
+                var personsByDate = persons.OrderBy(p => p.DateOfBirth);
+                foreach (var person in personsByDate)
+                {
+                    Console.Write($"{person.FirstName,-10} {person.LastName,-10} {person.Gender,-8}");
+                    Console.Write($"{person.FavoriteColor,-10} {person.DateOfBirth.ToString("M/d/yyyy"),10}\n");
+                }
+                Console.WriteLine("================================================================");
+
+                Console.WriteLine("Sorted by last name, descending:");
+                Console.WriteLine("================================================================");
+                var personsByLast = persons.OrderByDescending(p => p.LastName);
+                foreach (var person in personsByLast)
+                {
+                    Console.Write($"{person.FirstName,-10} {person.LastName,-10} {person.Gender,-8}");
+                    Console.Write($"{person.FavoriteColor,-10} {person.DateOfBirth.ToString("M/d/yyyy"),10}\n");
+                }
+                Console.WriteLine("================================================================");
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Something went wrong.\n {0}", ex.Message);
+            }
+            finally
+            {
+                Console.ReadKey();
             }
         }
     }
